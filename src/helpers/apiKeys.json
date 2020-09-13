@@ -1,0 +1,11 @@
+{
+"firebaseKeys": {
+  "apiKey": "AIzaSyAztN9boVW5xtkSCOPzY5YOnb5jfQhaXAQ",
+  "authDomain": "vintage-verified.firebaseapp.com",
+  "databaseURL": "https://vintage-verified.firebaseio.com",
+  "projectId": "vintage-verified",
+  "storageBucket": "vintage-verified.appspot.com",
+  "messagingSenderId": "762077660629",
+  "appId": "1:762077660629:web:cc553f22ef0aab09aea95c"
+  }
+}
