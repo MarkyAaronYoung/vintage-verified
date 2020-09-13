@@ -9,6 +9,7 @@ import Dresses from '../components/pages/Dresses/Dresses';
 import Pants from '../components/pages/Pants/Pants';
 import Jeans from '../components/pages/Jeans/Jeans';
 import Shirts from '../components/pages/Shirts/Shirts';
+import VintageVerified from '../components/pages/VintageVerified/VintageVerified';
 
 import './App.scss';
 
@@ -44,6 +45,7 @@ class App extends React.Component {
         <Pants authed={authed}/>
         <Jeans authed={authed}/>
         <Shirts authed={authed}/>
+        <VintageVerified authed={authed}/>
       </div>
     );
   }
