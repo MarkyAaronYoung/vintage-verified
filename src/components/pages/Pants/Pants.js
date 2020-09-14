@@ -1,4 +1,5 @@
 import React from 'react';
+import './Pants.scss';
 
 class Pants extends React.Component {
   render() {
