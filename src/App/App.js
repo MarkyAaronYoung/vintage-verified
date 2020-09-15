@@ -12,7 +12,7 @@ import Dresses from '../components/pages/Dresses/Dresses';
 import Pants from '../components/pages/Pants/Pants';
 import Jeans from '../components/pages/Jeans/Jeans';
 import Shirts from '../components/pages/Shirts/Shirts';
-import VintageVerified from '../components/pages/VintageVerified/VintageVerified';
+import VerifiedVintage from '../components/pages/VerifiedVintage/VerifiedVintage';
 
 import './App.scss';
 import Home from '../components/pages/Home/Home';
@@ -68,7 +68,7 @@ class App extends React.Component {
                 <PrivateRoute path="/jeans" component={Jeans} authed={authed} />
                 <PrivateRoute path="/shirts" component={Shirts} authed={authed} />
                 <PrivateRoute path="/dresses" component={Dresses} authed={authed} />
-                <PrivateRoute path="/vintageverified" component={VintageVerified} authed={authed} />
+                <PrivateRoute path="/verifiedvintage" component={VerifiedVintage} authed={authed} />
                 <PublicRoute path="/auth" component={Auth} authed={authed} />
                 <Redirect from="*" to="/home" />
               </Switch>
