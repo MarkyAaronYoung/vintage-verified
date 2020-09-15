@@ -1,0 +1,12 @@
+{
+  "dress1": {
+    "dressName": "pink dress I found at GoodWill",
+    "isSkirt": "True",
+    "whereMade": "USA",
+    "fabricType": "All Cotton",
+    "zipperAndTongType": "Both Metal",
+    "isVintage": "True",
+    "imageUrl": "https://firebasestorage.googleapis.com/v0/b/vintage-verified.appspot.com/o/40sdress.jpg?alt=media&token=8835ef9e-13d1-49e2-ad9e-9304f36c7b8c",
+    "uid": "3Dbh7iYkinNPOq7OFXlgJbsWNPG2"
+  }
+}
