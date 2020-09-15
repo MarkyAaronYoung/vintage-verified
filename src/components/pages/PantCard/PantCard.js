@@ -14,10 +14,10 @@ class PantCard extends React.Component {
         <img src={ pant.imageUrl } className="card-img-top rounded-circle" alt="pantPort"></img>
         <div className="card-body">
           <h2 className="card-title">{ pant.pantsName }</h2>
-          <p className="card-text">{ pant.whereMade }</p>
-          <p className="card-text">{ pant.zipperAndTongType }</p>
-          <p className="card-text">{ pant.fabricType }</p>
-          <p className="card-text">{ pant.isVintage }</p>
+          <p className="card-text">Made in: { pant.whereMade }</p>
+          <p className="card-text">Zipper and Tong Type: { pant.zipperAndTongType }</p>
+          <p className="card-text"> Fabric Type: { pant.fabricType }</p>
+          <p className="card-text"> Vintge: { pant.isVintage }</p>
           <button type="button" className="btn btn-secondary"
           onClick={this.deletePantEvent}>Delete</button> <button className="btn btn-light" onClick={this.editPantEvent}><i className="far fa-edit">Edit</i></button>
         </div>

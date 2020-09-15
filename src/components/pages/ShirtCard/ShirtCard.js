@@ -10,8 +10,8 @@ class ShirtCard extends React.Component {
   render() {
     const { shirt } = this.props;
     return (
-      <div className="card pant-card text-white bg-dark mb-3 rounded">
-        <img src={ shirt.imageUrl } className="card-img-top rounded-circle" alt="pantPort"></img>
+      <div className="card shirt-card text-white bg-dark mb-3 rounded">
+        <img src={ shirt.imageUrl } className="card-img-top rounded-circle" alt="shirtPort"></img>
         <div className="card-body">
           <h2 className="card-title">{ shirt.shirtName }</h2>
           <p className="card-text">T-shirt: { shirt.isTshirt }</p>
@@ -21,7 +21,7 @@ class ShirtCard extends React.Component {
           <p className="card-text">Fabric Type: { shirt.fabricType }</p>
           <p className="card-text">Vintage: { shirt.isVintage }</p>
           <button type="button" className="btn btn-secondary"
-          onClick={this.deletePantEvent}>Delete</button> <button className="btn btn-light" onClick={this.editPantEvent}><i className="far fa-edit">Edit</i></button>
+          onClick={this.deleteShirtEvent}>Delete</button> <button className="btn btn-light" onClick={this.editShirtEvent}><i className="far fa-edit">Edit</i></button>
         </div>
       </div>
     );
