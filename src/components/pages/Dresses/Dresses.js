@@ -67,7 +67,7 @@ class Dresses extends React.Component {
     dressesData
       .createDress(newDress)
       .then((res) => {
-        this.props.history.push(`/dresses/${res.data.name}`);
+        this.props.history.push(`/verifiedvintage/${res.data.name}`);
       })
       .catch((err) => console.error('new item broken', err));
   };
@@ -99,6 +99,7 @@ class Dresses extends React.Component {
     <div className="form-group">
     <label htmlFor="wheredressmade">Where was your dress made?</label>
     <select className="form-control" id="wheredressmade" onChange={this.changeMadeEvent}>
+    <option value="" default selected>choose a location below</option>
       <option>USA/Korea/Hong Kong</option>
       <option>Phillipines</option>
       <option>Unknown/No Tag</option>
@@ -108,6 +109,7 @@ class Dresses extends React.Component {
   <div className="form-group">
     <label htmlFor="isSkirt">Is It a Skirt?</label>
     <select className="form-control" id="isSkirt" onChange={this.changeSkirtEvent}>
+    <option value="" default selected>Answer "Yes" or "No" by clicking the arrow</option>
       <option>Yes</option>
       <option>No</option>
     </select>
@@ -115,6 +117,7 @@ class Dresses extends React.Component {
   <div className="form-group">
     <label htmlFor="fabricType">What Kind of Fabric?</label>
     <select className="form-control" id="fabricType" onChange={this.changeFabricEvent}>
+    <option value="" default selected>Choose a fabric type below</option>
       <option>All Cotton</option>
       <option>Polyester(any amount)</option>
       <option>Rayon/Crepe</option>
@@ -126,6 +129,7 @@ class Dresses extends React.Component {
   <div className="form-group">
     <label htmlFor="zipperAndTongType">What material are the zipper teeth and tongs?</label>
     <select className="form-control" id="zipperAndTongType" onChange={this.changeZipperEvent}>
+    <option value="" default selected>Choose the type of material of your zipper teeth and tong below</option>
       <option>Both Plastic</option>
       <option>Metal Teeth/Plastic Tong</option>
       <option>Both Metal</option>
