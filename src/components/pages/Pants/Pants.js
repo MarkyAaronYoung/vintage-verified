@@ -60,7 +60,7 @@ class Pants extends React.Component {
     pantsData
       .createPants(newPants)
       .then((res) => {
-        this.props.history.push(`/pants/${res.data.name}`);
+        this.props.history.push(`/verifiedvintage/${res.data.name}`);
       })
       .catch((err) => console.error('new item broken', err));
   };

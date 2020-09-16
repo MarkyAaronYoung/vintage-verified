@@ -27,6 +27,16 @@ class Home extends React.Component {
     this.props.history.push(`/pants/${pantsId}`);
   }
 
+  createJeanEvent = (e) => {
+    e.preventDefault();
+    const jeansId = '12345';
+    this.props.history.push(`/jeans/${jeansId}`);
+  }
+
+  createShirtEvent = (e) => {
+    const shirtsId = '12345';
+    this.props.history.push(`/shirts/${shirtsId}`);
+  }
   render() {
     return (
    <div className="app">
@@ -36,9 +46,9 @@ class Home extends React.Component {
      <div className="quad">
        <img src={pant} alt="" onClick={this.createPantEvent}/>
        <div className="quad">
-         <img src={shirt} alt=""/>
+         <img src={shirt} alt="" onClick={this.createShirtEvent}/>
          <div className="quad">
-           <img src={jeans} alt=""/>
+           <img src={jeans} alt="" onClick={this.createJeanEvent}/>
          </div>
        </div>
      </div>

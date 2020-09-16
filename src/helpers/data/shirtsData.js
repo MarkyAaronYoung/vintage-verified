@@ -12,4 +12,6 @@ const getShirtsByUid = (uid) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getShirtsByUid };
+const createShirts = (newShirt) => axios.post(`${baseUrl}/shirts.json`, newShirt);
+
+export default { getShirtsByUid, createShirts };
