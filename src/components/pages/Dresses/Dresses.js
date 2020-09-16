@@ -1,11 +1,6 @@
 import React from 'react';
 import _ from 'underscore';
 import './Dresses.scss';
-// import {
-//   FormGroup, Label, Input,
-// } from 'reactstrap';
-// import PropTypes from 'prop-types';
-// import getDress from '../VerifiedVintage/VerifiedVintage';
 import authData from '../../../helpers/data/authData';
 import dressesData from '../../../helpers/data/dressesData';
 
@@ -27,6 +22,31 @@ class Dresses extends React.Component {
   changeImageUrlEvent = (e) => {
     e.preventDefault();
     this.setState({ imageUrl: e.target.value });
+  }
+
+  changeNameEvent = (e) => {
+    e.preventDefault();
+    this.setState({ dressName: e.target.value });
+  }
+
+  changeMadeEvent = (e) => {
+    e.preventDefault();
+    this.setState({ whereMade: e.target.value });
+  }
+
+  changeSkirtEvent = (e) => {
+    e.preventDefault();
+    this.setState({ isSkirt: e.target.value });
+  }
+
+  changeFabricEvent = (e) => {
+    e.preventDefault();
+    this.setState({ fabricType: e.target.value });
+  }
+
+  changeZipperEvent = (e) => {
+    e.preventDefault();
+    this.setState({ zipperAndTongType: e.target.value });
   }
 
   verifyDressEvent = (e) => {
@@ -55,7 +75,7 @@ class Dresses extends React.Component {
   render() {
     return (
       <form className="col-6 offset-3">
-      <button className="btn btn-dark" onClick={this.closeFormEvent}><i className="fas fa-window-close"></i></button>
+      {/* <button className="btn btn-dark" onClick={this.closeFormEvent}><i className="fas fa-window-close"></i></button> */}
        <div className="form-group">
       <label htmlFor="dressimg">Dress Image</label>
       <input
@@ -67,7 +87,7 @@ class Dresses extends React.Component {
       />
     </div>
     <div className="form-group">
-      <label htmlFor="playerName">Dress Name</label>
+      <label htmlFor="dressName">Dress Name</label>
       <input
         type="text"
         className="form-control"
@@ -78,7 +98,7 @@ class Dresses extends React.Component {
     </div>
     <div className="form-group">
     <label htmlFor="wheredressmade">Where was your dress made?</label>
-    <select className="form-control" id="wheredressmade">
+    <select className="form-control" id="wheredressmade" onChange={this.changeMadeEvent}>
       <option>USA/Korea/Hong Kong</option>
       <option>Phillipines</option>
       <option>Unknown/No Tag</option>
@@ -87,14 +107,14 @@ class Dresses extends React.Component {
   </div>
   <div className="form-group">
     <label htmlFor="isSkirt">Is It a Skirt?</label>
-    <select className="form-control" id="isSkirt">
+    <select className="form-control" id="isSkirt" onChange={this.changeSkirtEvent}>
       <option>Yes</option>
       <option>No</option>
     </select>
   </div>
   <div className="form-group">
     <label htmlFor="fabricType">What Kind of Fabric?</label>
-    <select className="form-control" id="fabricType">
+    <select className="form-control" id="fabricType" onChange={this.changeFabricEvent}>
       <option>All Cotton</option>
       <option>Polyester(any amount)</option>
       <option>Rayon/Crepe</option>
@@ -104,8 +124,8 @@ class Dresses extends React.Component {
     </select>
   </div>
   <div className="form-group">
-    <label htmlFor="zipperAndTongType">Example select</label>
-    <select className="form-control" id="zipperAndTongType">
+    <label htmlFor="zipperAndTongType">What material are the zipper teeth and tongs?</label>
+    <select className="form-control" id="zipperAndTongType" onChange={this.changeZipperEvent}>
       <option>Both Plastic</option>
       <option>Metal Teeth/Plastic Tong</option>
       <option>Both Metal</option>
