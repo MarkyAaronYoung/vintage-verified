@@ -1,6 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import pantShape from '../../../helpers/props/pantShape';
+import './PantCard.scss';
 
 class PantCard extends React.Component {
   static propTypes = {
@@ -10,7 +11,7 @@ class PantCard extends React.Component {
   render() {
     const { pant } = this.props;
     return (
-      <div className="card pant-card text-white bg-dark mb-3 rounded">
+      <div className="card pant-card text-white bg-dark mb-3 rounded" id="pantcard">
         <img src={ pant.imageUrl } className="card-img-top rounded-circle" alt="pantPort"></img>
         <div className="card-body">
           <h2 className="card-title">{ pant.pantsName }</h2>

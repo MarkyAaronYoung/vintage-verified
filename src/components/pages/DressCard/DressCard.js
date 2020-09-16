@@ -1,6 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import dressShape from '../../../helpers/props/dressShape';
+import './DressCard.scss';
 
 class DressCard extends React.Component {
   static propTypes = {
@@ -10,7 +11,7 @@ class DressCard extends React.Component {
   render() {
     const { dress } = this.props;
     return (
-      <div className="card dress-card text-white bg-dark mb-3 rounded">
+      <div className="card dress-card text-white bg-dark mb-3 rounded" id="dresscard">
         <img src={ dress.imageUrl } className="card-img-top rounded-circle" alt="dressPort"></img>
         <div className="card-body">
           <h2 className="card-title">{ dress.dressName }</h2>

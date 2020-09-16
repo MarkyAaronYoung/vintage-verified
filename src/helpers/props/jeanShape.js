@@ -7,7 +7,7 @@ const jeanShape = PropTypes.shape({
   whereMade: PropTypes.string.isRequired,
   whatColorTab: PropTypes.string.isRequired,
   fabricType: PropTypes.string.isRequired,
-  isVintage: PropTypes.bool.isRequired,
+  isVintage: PropTypes.string.isRequired,
   uid: PropTypes.string.isRequired,
 });
 
