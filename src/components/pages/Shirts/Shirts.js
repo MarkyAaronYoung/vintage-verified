@@ -27,7 +27,7 @@ class Shirts extends React.Component {
 
   changeNameEvent = (e) => {
     e.preventDefault();
-    this.setState({ pantsName: e.target.value });
+    this.setState({ shirtName: e.target.value });
   }
 
   changeMadeEvent = (e) => {
@@ -40,12 +40,17 @@ class Shirts extends React.Component {
     this.setState({ fabricType: e.target.value });
   }
 
-  changeZipperEvent = (e) => {
+  changeStitchTypeEvent = (e) => {
     e.preventDefault();
-    this.setState({ zipperAndTongType: e.target.value });
+    this.setState({ stitchType: e.target.value });
   }
 
-  verifyPantsEvent = (e) => {
+  changeBrandEvent = (e) => {
+    e.preventDefault();
+    this.setState({ whatBrand: e.target.value });
+  }
+
+  verifyShirtEvent = (e) => {
     e.preventDefault();
     const keysIWant = [
       'shirtName',
@@ -104,25 +109,42 @@ class Shirts extends React.Component {
     </select>
   </div>
   <div className="form-group">
+    <label htmlFor="isTshirt">Is it a T-shirt?</label>
+    <select className="form-control" id="isTshirt" onChange={this.changeTshirtEvent}>
+    <option value="" defaultselected>choose an answer below</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </div>
+  <div className="form-group">
     <label htmlFor="fabricType">What Kind of Fabric?</label>
     <select className="form-control" id="fabricType" onChange={this.changeFabricEvent}>
+    <option value="" defaultselected>choose a fabric below </option>
       <option>All Cotton</option>
       <option>Polyester(any amount)</option>
-      <option>Rayon/Crepe</option>
       <option>Spandex</option>
-      <option>Handmade</option>
       <option>unknown/other</option>
     </select>
   </div>
   <div className="form-group">
-    <label htmlFor="zipperAndTongType">What material are the zipper teeth and tongs?</label>
-    <select className="form-control" id="zipperAndTongType" onChange={this.changeZipperEvent}>
-      <option>Both Plastic</option>
-      <option>Metal Teeth/Plastic Tong</option>
-      <option>Both Metal</option>
+    <label htmlFor="stitchType">What Kind of Stitch?</label>
+    <select className="form-control" id="stitchType" onChange={this.changeStitchTypeEvent}>
+    <option value="" defaultselected>choose a stitch below </option>
+      <option>Single Stitch</option>
+      <option>Double Stitch</option>
+      <option>Unknown/Other</option>
     </select>
   </div>
-    <button className="btn btn-dark" onClick={this.verifyPantsEvent}>Verify Pants</button>
+  <div className="form-group">
+    <label htmlFor="whatBrand">What Brand?</label>
+    <select className="form-control" id="whatBrand" onChange={this.changeBrandEvent}>
+      <option value="" default selected>choose a brand below</option>
+      <option>Madewell</option>
+      <option>American Apparel</option>
+      <option>Other/Unknown</option>
+    </select>
+  </div>
+    <button className="btn btn-dark" onClick={this.verifyShirtEvent}>Verify Shirt</button>
   </form>
     );
   }
