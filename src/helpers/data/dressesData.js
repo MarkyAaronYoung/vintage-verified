@@ -12,4 +12,6 @@ const getDressesByUid = (uid) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getDressesByUid };
+const createDress = (newDress) => axios.post(`${baseUrl}/dresses.json`, newDress);
+
+export default { getDressesByUid, createDress };

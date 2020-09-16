@@ -1,6 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import shirtShape from '../../../helpers/props/shirtShape';
+import './ShirtCard.scss';
 
 class ShirtCard extends React.Component {
   static propTypes = {

@@ -6,7 +6,7 @@ const pantShape = PropTypes.shape({
   zipperAndTongType: PropTypes.string.isRequired,
   whereMade: PropTypes.string.isRequired,
   fabricType: PropTypes.string.isRequired,
-  isVintage: PropTypes.bool.isRequired,
+  isVintage: PropTypes.string.isRequired,
   uid: PropTypes.string.isRequired,
 });
 

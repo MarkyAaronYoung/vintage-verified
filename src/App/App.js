@@ -13,7 +13,7 @@ import Pants from '../components/pages/Pants/Pants';
 import Jeans from '../components/pages/Jeans/Jeans';
 import Shirts from '../components/pages/Shirts/Shirts';
 import VerifiedVintage from '../components/pages/VerifiedVintage/VerifiedVintage';
-
+// import PantsForm from '../components/pages/PantsForm/PantsForm';
 import './App.scss';
 import Home from '../components/pages/Home/Home';
 import Auth from '../components/pages/Auth/Auth';
