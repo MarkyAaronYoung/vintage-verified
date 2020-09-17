@@ -1,10 +1,17 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import jeanShape from '../../../helpers/props/jeanShape';
 
 class PantCard extends React.Component {
   static propTypes = {
     jean: jeanShape.jeanShape,
+    deleteJeans: PropTypes.func.isRequired,
+  }
+
+  deleteJeanEvent = (e) => {
+    e.preventDefault();
+    const { deleteJeans, jean } = this.props;
+    deleteJeans(jean.id);
   }
 
   render() {

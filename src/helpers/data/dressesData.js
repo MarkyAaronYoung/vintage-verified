@@ -14,4 +14,6 @@ const getDressesByUid = (uid) => new Promise((resolve, reject) => {
 
 const createDress = (newDress) => axios.post(`${baseUrl}/dresses.json`, newDress);
 
-export default { getDressesByUid, createDress };
+const deleteDress = (dressId) => axios.delete(`${baseUrl}/dresses/${dressId}.json`);
+
+export default { getDressesByUid, createDress, deleteDress };

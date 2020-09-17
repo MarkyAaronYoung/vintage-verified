@@ -37,6 +37,7 @@ class Home extends React.Component {
     const shirtsId = '12345';
     this.props.history.push(`/shirts/${shirtsId}`);
   }
+
   render() {
     return (
    <div className="app">
@@ -45,14 +46,14 @@ class Home extends React.Component {
      </div>
      <div className="quad">
        <img src={pant} alt="" onClick={this.createPantEvent}/>
+       </div>
        <div className="quad">
          <img src={shirt} alt="" onClick={this.createShirtEvent}/>
+         </div>
          <div className="quad">
            <img src={jeans} alt="" onClick={this.createJeanEvent}/>
          </div>
        </div>
-     </div>
-   </div>
     );
   }
 }

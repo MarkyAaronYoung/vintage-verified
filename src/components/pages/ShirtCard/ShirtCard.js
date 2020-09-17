@@ -1,11 +1,18 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import shirtShape from '../../../helpers/props/shirtShape';
 import './ShirtCard.scss';
 
 class ShirtCard extends React.Component {
   static propTypes = {
     shirt: shirtShape.shirtShape,
+    deleteShirts: PropTypes.func.isRequired,
+  }
+
+  deleteShirtEvent = (e) => {
+    e.preventDefault();
+    const { deleteShirts, shirt } = this.props;
+    deleteShirts(shirt.id);
   }
 
   render() {

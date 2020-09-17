@@ -1,11 +1,19 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+// import authData from '../../../helpers/data/authData';
 import dressShape from '../../../helpers/props/dressShape';
 import './DressCard.scss';
 
 class DressCard extends React.Component {
   static propTypes = {
     dress: dressShape.dressShape,
+    deleteDress: PropTypes.func.isRequired,
+  }
+
+  deleteDressEvent = (e) => {
+    e.preventDefault();
+    const { deleteDress, dress } = this.props;
+    deleteDress(dress.id);
   }
 
   render() {
