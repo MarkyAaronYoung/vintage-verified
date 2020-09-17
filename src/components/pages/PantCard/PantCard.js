@@ -1,11 +1,18 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import pantShape from '../../../helpers/props/pantShape';
 import './PantCard.scss';
 
 class PantCard extends React.Component {
   static propTypes = {
     pant: pantShape.pantShape,
+    deletePants: PropTypes.func.isRequired,
+  }
+
+  deletePantEvent = (e) => {
+    e.preventDefault();
+    const { deletePants, pant } = this.props;
+    deletePants(pant.id);
   }
 
   render() {

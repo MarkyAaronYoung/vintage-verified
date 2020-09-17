@@ -42,6 +42,30 @@ class VerifiedVintage extends React.Component {
       .catch((err) => console.error('get dresses broke', err));
   }
 
+  deleteDress = (dressId) => {
+    dressesData.deleteDress(dressId)
+      .then(() => this.getDresses())
+      .catch((err) => console.error('cannot delete dress', err));
+  }
+
+  deleteJeans = (jeanId) => {
+    jeansData.deleteJeans(jeanId)
+      .then(() => this.getJeans())
+      .catch((err) => console.error('cannot delete jeans', err));
+  }
+
+  deletePants = (pantId) => {
+    pantsData.deletePants(pantId)
+      .then(() => this.getPants())
+      .catch((err) => console.error('cannot delete pants', err));
+  }
+
+  deleteShirts = (shirtId) => {
+    shirtsData.deleteShirts(shirtId)
+      .then(() => this.getShirts())
+      .catch((err) => console.error('cannot delete shirts', err));
+  }
+
   componentDidMount() {
     this.getPants();
     this.getJeans();
@@ -53,10 +77,10 @@ class VerifiedVintage extends React.Component {
     const {
       pants, jeans, shirts, dresses,
     } = this.state;
-    const shirtCards = shirts.map((shirt) => <ShirtCard key={shirt.id} shirt={shirt} />);
-    const pantCards = pants.map((pant) => <PantCard key={pant.id} pant={pant} />);
-    const jeanCards = jeans.map((jean) => <JeanCard key={jean.id} jean={jean} />);
-    const dressCards = dresses.map((dress) => <DressCard key={dress.id} dress={dress} />);
+    const shirtCards = shirts.map((shirt) => <ShirtCard key={shirt.id} shirt={shirt} deleteShirts={this.deleteShirts}/>);
+    const pantCards = pants.map((pant) => <PantCard key={pant.id} pant={pant} deletePants={this.deletePants}/>);
+    const jeanCards = jeans.map((jean) => <JeanCard key={jean.id} jean={jean} deleteJeans={this.deleteJeans}/>);
+    const dressCards = dresses.map((dress) => <DressCard key={dress.id} dress={dress} deleteDress={this.deleteDress}/>);
 
     return (
       <div className="VerifiedVintage">
