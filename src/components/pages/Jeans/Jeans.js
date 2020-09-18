@@ -102,7 +102,7 @@ class Jeans extends React.Component {
       <option value="" default selected>choose a location below</option>
       <option>USA/Mexico</option>
       <option>China/Bangladesh/Phillipines</option>
-      <option>Unknown/No Tag</option>¸¸¸
+      <option>Unknown/No Tag</option>
     </select>
   </div>
   <div className="form-group">

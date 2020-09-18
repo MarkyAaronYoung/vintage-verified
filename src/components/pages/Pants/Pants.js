@@ -10,7 +10,7 @@ class Pants extends React.Component {
   // }
 
   state = {
-    pantsName: '',
+    pantName: '',
     whereMade: '',
     fabricType: '',
     zipperAndTongType: '',

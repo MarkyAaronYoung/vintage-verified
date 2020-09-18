@@ -8,6 +8,7 @@ class DressCard extends React.Component {
   static propTypes = {
     dress: dressShape.dressShape,
     deleteDress: PropTypes.func.isRequired,
+    editADress: PropTypes.func.isRequired,
   }
 
   deleteDressEvent = (e) => {

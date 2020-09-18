@@ -16,4 +16,8 @@ const createDress = (newDress) => axios.post(`${baseUrl}/dresses.json`, newDress
 
 const deleteDress = (dressId) => axios.delete(`${baseUrl}/dresses/${dressId}.json`);
 
-export default { getDressesByUid, createDress, deleteDress };
+const updateDress = (dressId, editedDress) => axios.put(`${baseUrl}/dresses/${dressId}.json`, editedDress);
+
+export default {
+  getDressesByUid, createDress, deleteDress, updateDress,
+};
