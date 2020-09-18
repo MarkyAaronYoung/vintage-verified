@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import pantShape from '../../../helpers/props/pantShape';
 import './PantCard.scss';
@@ -17,6 +18,7 @@ class PantCard extends React.Component {
 
   render() {
     const { pant } = this.props;
+    const editPantLink = `/editpant/${pant.id}`;
     return (
       <div className="card pant-card text-white bg-dark mb-3 rounded" id="pantcard">
         <img src={ pant.imageUrl } className="card-img-top rounded-circle" alt="pantPort"></img>
@@ -26,8 +28,11 @@ class PantCard extends React.Component {
           <p className="card-text">Zipper and Tong Type: { pant.zipperAndTongType }</p>
           <p className="card-text"> Fabric Type: { pant.fabricType }</p>
           <p className="card-text"> Vintge: { pant.isVintage }</p>
+          <div className="card-footer">
+          <Link to={editPantLink} className="btn btn-warning"><i className="fas fa-edit"></i></Link>
           <button type="button" className="btn btn-secondary"
-          onClick={this.deletePantEvent}>Delete</button> <button className="btn btn-light" onClick={this.editPantEvent}><i className="far fa-edit">Edit</i></button>
+          onClick={this.deletePantEvent}>Delete</button>
+          </div>
         </div>
       </div>
     );

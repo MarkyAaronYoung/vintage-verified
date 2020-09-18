@@ -6,12 +6,19 @@ class PantCard extends React.Component {
   static propTypes = {
     jean: jeanShape.jeanShape,
     deleteJeans: PropTypes.func.isRequired,
+    editAJean: PropTypes.func.isRequired,
   }
 
   deleteJeanEvent = (e) => {
     e.preventDefault();
     const { deleteJeans, jean } = this.props;
     deleteJeans(jean.id);
+  }
+
+  editJeanEvent = (e) => {
+    e.preventDefault();
+    const { editAJean, jean } = this.props;
+    editAJean(jean);
   }
 
   render() {

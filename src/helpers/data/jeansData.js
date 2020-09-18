@@ -16,4 +16,8 @@ const createJeans = (newJeans) => axios.post(`${baseUrl}/jeans.json`, newJeans);
 
 const deleteJeans = (jeanId) => axios.delete(`${baseUrl}/jeans/${jeanId}.json`);
 
-export default { getJeansByUid, createJeans, deleteJeans };
+const updateJeans = (jeanId, editedJean) => axios.put(`${baseUrl}/jeans/${jeanId}.json`, editedJean);
+
+export default {
+  getJeansByUid, createJeans, deleteJeans, updateJeans,
+};

@@ -12,8 +12,14 @@ const getShirtsByUid = (uid) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
+const getShirtsById = (shirtId) => axios.get(`${baseUrl}/shirts/${shirtId}.json`);
+
 const createShirts = (newShirt) => axios.post(`${baseUrl}/shirts.json`, newShirt);
 
 const deleteShirts = (shirtId) => axios.delete(`${baseUrl}/shirts/${shirtId}.json`);
 
-export default { getShirtsByUid, createShirts, deleteShirts };
+const updateShirts = (shirtId, editedShirt) => axios.put(`${baseUrl}/shirts/${shirtId}.json`, editedShirt);
+
+export default {
+  getShirtsByUid, createShirts, deleteShirts, updateShirts, getShirtsById,
+};

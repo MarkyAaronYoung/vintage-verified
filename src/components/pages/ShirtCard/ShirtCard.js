@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import shirtShape from '../../../helpers/props/shirtShape';
 import './ShirtCard.scss';
@@ -17,6 +18,7 @@ class ShirtCard extends React.Component {
 
   render() {
     const { shirt } = this.props;
+    const editShirtLink = `/editshirt/${shirt.id}`;
     return (
       <div className="card shirt-card text-white bg-dark mb-3 rounded">
         <img src={ shirt.imageUrl } className="card-img-top rounded-circle" alt="shirtPort"></img>
@@ -28,8 +30,11 @@ class ShirtCard extends React.Component {
           <p className="card-text">Stitch Type: { shirt.stitchType }</p>
           <p className="card-text">Fabric Type: { shirt.fabricType }</p>
           <p className="card-text">Vintage: { shirt.isVintage }</p>
+          <div className="card-footer">
+          <Link to={editShirtLink} className="btn btn-warning"><i className="fas fa-edit">Edit</i></Link>
           <button type="button" className="btn btn-secondary"
-          onClick={this.deleteShirtEvent}>Delete</button> <button className="btn btn-light" onClick={this.editShirtEvent}><i className="far fa-edit">Edit</i></button>
+          onClick={this.deleteShirtEvent}>Delete</button>
+          </div>
         </div>
       </div>
     );

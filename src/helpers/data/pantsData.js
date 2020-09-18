@@ -14,6 +14,12 @@ const getPantsByUid = (uid) => new Promise((resolve, reject) => {
 
 const createPants = (newPants) => axios.post(`${baseUrl}/pants.json`, newPants);
 
+const getPantsById = (pantId) => axios.get(`${baseUrl}/pants/${pantId}.json`);
+
 const deletePants = (pantId) => axios.delete(`${baseUrl}/pants/${pantId}.json`);
 
-export default { getPantsByUid, createPants, deletePants };
+const updatePants = (pantId, editedPant) => axios.put(`${baseUrl}/pants/${pantId}.json`, editedPant);
+
+export default {
+  getPantsByUid, createPants, deletePants, updatePants, getPantsById,
+};
