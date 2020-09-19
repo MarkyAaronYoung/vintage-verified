@@ -18,7 +18,7 @@ class ShirtCard extends React.Component {
 
   render() {
     const { shirt } = this.props;
-    const editShirtLink = `/editshirt/${shirt.id}`;
+    const editShirtLink = `/shirts/${shirt.id}/edit/`;
     return (
       <div className="card shirt-card text-white bg-dark mb-3 rounded">
         <img src={ shirt.imageUrl } className="card-img-top rounded-circle" alt="shirtPort"></img>

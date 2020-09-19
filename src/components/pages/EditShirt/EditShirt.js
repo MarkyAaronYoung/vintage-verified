@@ -1,136 +1,97 @@
 import React from 'react';
-import _ from 'underscore';
-// import './Shirts.scss';
-import authData from '../../../helpers/data/authData';
 import shirtsData from '../../../helpers/data/shirtsData';
 
 class EditShirt extends React.Component {
-  // static propTypes = {
-  //   createDress: PropTypes.func.isRequired,
-  // }
-
   state = {
-    shirtName: '',
-    isTshirt: '',
-    whereMade: '',
-    fabricType: '',
-    whatBrand: '',
-    stitchType: '',
-    isVintage: '',
-    imageUrl: '',
+    shirt: {
+      shirtName: '',
+      isTshirt: '',
+      whereMade: '',
+      fabricType: '',
+      whatBrand: '',
+      stitchType: '',
+      isVintage: '',
+      imageUrl: '',
+    },
   }
 
   componentDidMount() {
-    const { shirtId } = this.props.match.params;
-    shirtsData.getShirtsById(shirtId)
+    shirtsData.getShirtsById(this.props.match.params.shirtId)
       .then((res) => {
-        this.setState({
-          // eslint-disable-next-line max-len
-          imageUrl: res.data.imageUrl, shirtName: res.data.shirtName, isTshirt: res.data.isTshirt, fabricType: res.data.fabricType, whereMade: res.data.whereMade, whatBrand: res.data.whatBrand, stitchType: res.data.stitchType, isVintage: res.data.isVintage,
-        });
+        const shirt = res.data;
+        this.setState({ shirt });
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error('cannot get shirt', err));
   }
 
   changeImageUrlEvent = (e) => {
     e.preventDefault();
-    this.setState({ imageUrl: e.target.value });
+    const { shirt } = this.state;
+    shirt.imageUrl = e.target.value;
+    this.setState({ shirt });
   }
 
   changeNameEvent = (e) => {
     e.preventDefault();
-    this.setState({ shirtName: e.target.value });
+    const { shirt } = this.state;
+    shirt.shirtName = e.target.value;
+    this.setState({ shirt });
   }
 
   changeMadeEvent = (e) => {
     e.preventDefault();
-    this.setState({ whereMade: e.target.value });
+    const { shirt } = this.state;
+    shirt.whereMade = e.target.value;
+    this.setState({ shirt });
   }
 
   changeFabricEvent = (e) => {
     e.preventDefault();
-    this.setState({ fabricType: e.target.value });
+    const { shirt } = this.state;
+    shirt.fabricType = e.target.value;
+    this.setState({ shirt });
   }
 
   changeStitchTypeEvent = (e) => {
     e.preventDefault();
-    this.setState({ stitchType: e.target.value });
+    const { shirt } = this.state;
+    shirt.stitchType = e.target.value;
+    this.setState({ shirt });
   }
 
   changeBrandEvent = (e) => {
     e.preventDefault();
-    this.setState({ whatBrand: e.target.value });
+    const { shirt } = this.state;
+    shirt.whatBrand = e.target.value;
+    this.setState({ shirt });
   }
 
   updateShirtEvent = (e) => {
     e.preventDefault();
     const { shirtId } = this.props.match.params;
-    const keys = ['shirtName',
-      'isTshirt',
-      'whereMade',
-      'whatBrand',
-      'fabricType',
-      'stitchType',
-      'isVintage',
-      'imageUrl'];
 
-    const editedShirt = _.pick(this.state, keys);
-    editedShirt.uid = authData.getUid();
-
-    shirtsData.updateShirts(shirtId, editedShirt)
-      .then((res) => {
+    shirtsData
+      .updateShirts(shirtId, this.state.shirt)
+      .then(() => {
         this.props.history.push(`/verifiedvintage/${shirtId}`);
       })
-      .catch((err) => console.error(err));
-
-    // updateShirts = (e) => {
-    //   e.preventDefault();
-    //   const { shirtId } = this.props.match.params;
-
-  //   shirtsData
-  //     .updateShirts(shirtId, this.state.shirt)
-  //     .then(() => {
-  //       this.props.history.push(`/verifiedvintage/${shirtId}`);
-  //     })
-  //     .catch((err) => console.error('edit shirt broken', err));
+      .catch((err) => console.error('edit shirt broke', err));
   };
-  // verifyShirtEvent = (e) => {
-  //   e.preventDefault();
-  // const keysIWant = [
-  //   'shirtName',
-  //   'isTshirt',
-  //   'whereMade',
-  //   'whatBrand',
-  //   'fabricType',
-  //   'stitchType',
-  //   'isVintage',
-  //   'imageUrl',
-  //   ];
-
-  //   const newShirts = _.pick(this.state, keysIWant);
-  //   newShirts.uid = authData.getUid();
-
-  //   shirtsData
-  //     .createShirts(newShirts)
-  //     .then((res) => {
-  //       this.props.history.push(`/verifiedvintage/${res.data.name}`);
-  //     })
-  //     .catch((err) => console.error('new item broken', err));
-  // };
 
   render() {
     const {
-      shirtName, isTshirt, whereMade, whatBrand, fabricType, stitchType, isVintage, imageUrl,
-    } = this.state;
+      isTshirt, shirtName, whereMade, whatBrand, fabricType, stitchType, isVintage, imageUrl,
+    } = this.state.shirt;
     return (
       <div className="form-wrapper">
         <h1>Edit {shirtName} </h1>
       <form className="col-6 offset-3">
       {/* <button className="btn btn-dark" onClick={this.closeFormEvent}><i className="fas fa-window-close"></i></button> */}
        <div className="form-group">
-      <label htmlFor="shirtsimg">Shirt Image</label>
+      <label htmlFor="imageUrl">Shirt Image</label>
       <input
         type="text"
+        alt="missingimage"
         className="form-control"
         id="imageUrl"
         placeholder="Add A Photo of Your Shirt"

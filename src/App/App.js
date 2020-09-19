@@ -19,6 +19,8 @@ import Home from '../components/pages/Home/Home';
 import Auth from '../components/pages/Auth/Auth';
 import EditShirt from '../components/pages/EditShirt/EditShirt';
 import EditPant from '../components/pages/EditPant/EditPant';
+import EditJean from '../components/pages/EditJean/EditJean';
+import EditDress from '../components/pages/EditDress/EditDress';
 
 fbConnection();
 
@@ -66,11 +68,14 @@ class App extends React.Component {
             <div className="container">
               <Switch>
                 <PrivateRoute path="/home" component={Home} authed={authed} />
+                <PrivateRoute path="/pants/:pantId/edit" component={EditPant} authed={authed} />
                 <PrivateRoute path="/pants" component={Pants} authed={authed} />
+                <PrivateRoute path="/jeans/:jeanId/edit" component={EditJean} authed={authed} />
                 <PrivateRoute path="/jeans" component={Jeans} authed={authed} />
+                <PrivateRoute path="/shirts/:shirtId/edit" component={EditShirt} authed={authed} />
                 <PrivateRoute path="/shirts" component={Shirts} authed={authed} />
-                <PrivateRoute path="/editshirt" component={EditShirt} authed={authed} />
-                <PrivateRoute path="/editpant" component={EditPant} authed={authed} />
+                {/* <PrivateRoute path="/pants/:pantId/edit" component={EditPant} authed={authed} /> */}
+                <PrivateRoute path="/dresses/:dressId/edit" component={EditDress} authed={authed} />
                 <PrivateRoute path="/dresses" component={Dresses} authed={authed} />
                 <PrivateRoute path="/verifiedvintage" component={VerifiedVintage} authed={authed} />
                 <PublicRoute path="/auth" component={Auth} authed={authed} />

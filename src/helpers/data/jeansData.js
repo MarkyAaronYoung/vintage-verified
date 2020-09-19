@@ -12,6 +12,8 @@ const getJeansByUid = (uid) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
+const getJeansById = (jeanId) => axios.get(`${baseUrl}/jeans/${jeanId}.json`);
+
 const createJeans = (newJeans) => axios.post(`${baseUrl}/jeans.json`, newJeans);
 
 const deleteJeans = (jeanId) => axios.delete(`${baseUrl}/jeans/${jeanId}.json`);
@@ -19,5 +21,5 @@ const deleteJeans = (jeanId) => axios.delete(`${baseUrl}/jeans/${jeanId}.json`);
 const updateJeans = (jeanId, editedJean) => axios.put(`${baseUrl}/jeans/${jeanId}.json`, editedJean);
 
 export default {
-  getJeansByUid, createJeans, deleteJeans, updateJeans,
+  getJeansByUid, createJeans, deleteJeans, updateJeans, getJeansById,
 };
