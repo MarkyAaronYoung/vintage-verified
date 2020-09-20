@@ -107,10 +107,10 @@ class Jeans extends React.Component {
   </div>
   <div className="form-group">
     <label htmlFor="fabricType">What Kind of Fabric?</label>
-    <select className="form-control" id="fabricType" onChange={this.changeFabricEvent} pla>
+    <select className="form-control" id="fabricType" onChange={this.changeFabricEvent} placeholder="choose a fabric below">
       <option value="" default selected>choose a fabric below</option>
       <option>All Cotton</option>
-      <option>Anything Other Than</option>
+      <option>Anything Other Than Cotton</option>
       <option>Unknown</option>
     </select>
   </div>

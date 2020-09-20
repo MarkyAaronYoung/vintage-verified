@@ -18,7 +18,7 @@ class PantCard extends React.Component {
 
   render() {
     const { pant } = this.props;
-    const editPantLink = `/editpant/${pant.id}`;
+    const editPantLink = `/pants/${pant.id}/edit`;
     return (
       <div className="card pant-card text-white bg-dark mb-3 rounded" id="pantcard">
         <img src={ pant.imageUrl } className="card-img-top rounded-circle" alt="pantPort"></img>

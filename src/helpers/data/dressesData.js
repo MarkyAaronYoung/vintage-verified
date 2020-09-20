@@ -12,6 +12,8 @@ const getDressesByUid = (uid) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
+const getDressById = (dressId) => axios.get(`${baseUrl}/dresses/${dressId}.json`);
+
 const createDress = (newDress) => axios.post(`${baseUrl}/dresses.json`, newDress);
 
 const deleteDress = (dressId) => axios.delete(`${baseUrl}/dresses/${dressId}.json`);
@@ -19,5 +21,5 @@ const deleteDress = (dressId) => axios.delete(`${baseUrl}/dresses/${dressId}.jso
 const updateDress = (dressId, editedDress) => axios.put(`${baseUrl}/dresses/${dressId}.json`, editedDress);
 
 export default {
-  getDressesByUid, createDress, deleteDress, updateDress,
+  getDressesByUid, createDress, deleteDress, updateDress, getDressById,
 };

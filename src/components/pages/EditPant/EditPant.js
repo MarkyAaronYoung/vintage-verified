@@ -1,131 +1,90 @@
 import React from 'react';
-import _ from 'underscore';
-// import './Shirts.scss';
-import authData from '../../../helpers/data/authData';
-// import pantsData from '../../../helpers/data/shirtsData';
 import pantsData from '../../../helpers/data/pantsData';
 
 class EditPant extends React.Component {
-  // static propTypes = {
-  //   createDress: PropTypes.func.isRequired,
-  // }
-
   state = {
-    pantName: '',
-    whereMade: '',
-    fabricType: '',
-    zipperAndTongType: '',
-    isVintage: '',
-    imageUrl: '',
+    pant: {
+      pantsName: '',
+      whereMade: '',
+      fabricType: '',
+      zipperAndTongType: '',
+      isVintage: '',
+      imageUrl: '',
+    },
   }
 
   componentDidMount() {
-    const { pantId } = this.props.match.params;
-    pantsData.getPantsById(pantId)
+    pantsData.getPantsById(this.props.match.params.pantId)
       .then((res) => {
-        this.setState({
-          // eslint-disable-next-line max-len
-          imageUrl: res.data.imageUrl, pantName: res.data.pantName, fabricType: res.data.fabricType, whereMade: res.data.whereMade, zipperAndTongType: res.data.zipperAndTongType, isVintage: res.data.isVintage,
-        });
+        const pant = res.data;
+        this.setState({ pant });
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error('cannot get item', err));
   }
 
   changeImageUrlEvent = (e) => {
     e.preventDefault();
-    this.setState({ imageUrl: e.target.value });
+    const { pant } = this.state;
+    pant.imageUrl = e.target.value;
+    this.setState({ pant });
   }
 
   changeNameEvent = (e) => {
     e.preventDefault();
-    this.setState({ pantName: e.target.value });
+    const { pant } = this.state;
+    pant.pantsName = e.target.value;
+    this.setState({ pant });
   }
 
   changeMadeEvent = (e) => {
     e.preventDefault();
-    this.setState({ whereMade: e.target.value });
+    const { pant } = this.state;
+    pant.whereMade = e.target.value;
+    this.setState({ pant });
   }
 
   changeFabricEvent = (e) => {
     e.preventDefault();
-    this.setState({ fabricType: e.target.value });
+    const { pant } = this.state;
+    pant.fabricType = e.target.value;
+    this.setState({ pant });
   }
 
   changeZipperEvent = (e) => {
     e.preventDefault();
-    this.setState({ zipperAndTongType: e.target.value });
+    const { pant } = this.state;
+    pant.zipperAndTongType = e.target.value;
+    this.setState({ pant });
   }
 
   updatePantEvent = (e) => {
     e.preventDefault();
     const { pantId } = this.props.match.params;
-    const keys = ['pantName',
-      'zipperAndTongType',
-      'whereMade',
-      'fabricType',
-      'isVintage',
-      'imageUrl'];
 
-    const editedPant = _.pick(this.state, keys);
-    editedPant.uid = authData.getUid();
-
-    pantsData.updatePants(pantId, editedPant)
-      .then((res) => {
+    pantsData
+      .updatePants(pantId, this.state.pant)
+      .then(() => {
         this.props.history.push(`/verifiedvintage/${pantId}`);
       })
-      .catch((err) => console.error(err));
-
-    // updateShirts = (e) => {
-    //   e.preventDefault();
-    //   const { shirtId } = this.props.match.params;
-
-  //   shirtsData
-  //     .updateShirts(shirtId, this.state.shirt)
-  //     .then(() => {
-  //       this.props.history.push(`/verifiedvintage/${shirtId}`);
-  //     })
-  //     .catch((err) => console.error('edit shirt broken', err));
+      .catch((err) => console.error('edit pant broke', err));
   };
-  // verifyShirtEvent = (e) => {
-  //   e.preventDefault();
-  // const keysIWant = [
-  //   'shirtName',
-  //   'isTshirt',
-  //   'whereMade',
-  //   'whatBrand',
-  //   'fabricType',
-  //   'stitchType',
-  //   'isVintage',
-  //   'imageUrl',
-  //   ];
-
-  //   const newShirts = _.pick(this.state, keysIWant);
-  //   newShirts.uid = authData.getUid();
-
-  //   shirtsData
-  //     .createShirts(newShirts)
-  //     .then((res) => {
-  //       this.props.history.push(`/verifiedvintage/${res.data.name}`);
-  //     })
-  //     .catch((err) => console.error('new item broken', err));
-  // };
 
   render() {
     const {
-      pantName, zipperAndTongType, whereMade, fabricType, isVintage, imageUrl,
-    } = this.state;
+      pantsName, zipperAndTongType, whereMade, fabricType, isVintage, imageUrl,
+    } = this.state.pant;
     return (
       <div className="form-wrapper">
-        <h1>Edit {pantName}</h1>
+        <h1>Edit {pantsName}</h1>
       <form className="col-6 offset-3">
-      {/* <button className="btn btn-dark" onClick={this.closeFormEvent}><i className="fas fa-window-close"></i></button> */}
        <div className="form-group">
-      <label htmlFor="pantsimg">Pant Image</label>
+      <label htmlFor="imageUrl">Pant Image</label>
       <input
         type="text"
+        alt="missingimage"
         className="form-control"
         id="imageUrl"
-        placeholder={imageUrl}
+        placeholder="Enter Item Image"
         value={imageUrl}
         onChange={this.changeImageUrlEvent}
       />
@@ -136,15 +95,15 @@ class EditPant extends React.Component {
         type="text"
         className="form-control"
         id="pantName"
-        value={pantName}
-        placeholder={pantName}
+        value={pantsName}
+        placeholder="Name Your Pants"
         onChange={this.changeNameEvent}
       />
     </div>
     <div className="form-group">
     <label htmlFor="wherepantsmade">Where were your pants made?</label>
     <select className="form-control" id="wherepantsmade" onChange={this.changeMadeEvent} value={whereMade}>
-    <option value="" defaultselected>choose a location below </option>
+    <option>choose a location below </option>
       <option>USA/Korea/Hong Kong</option>
       <option>Phillipines</option>
       <option>Unknown/No Tag</option>
