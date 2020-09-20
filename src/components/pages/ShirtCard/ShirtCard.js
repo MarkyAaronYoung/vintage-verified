@@ -18,9 +18,15 @@ class ShirtCard extends React.Component {
 
   render() {
     const { shirt } = this.props;
+    const vintageVerify = () => {
+      if (shirt.whereMade === 'China/Taiwan' || shirt.whatBrand === 'Madewell' || shirt.stitchType === 'Double Stitch') {
+        return <div>Not Vintage</div>;
+      }
+      return <div>Vintage</div>;
+    };
     const editShirtLink = `/shirts/${shirt.id}/edit/`;
     return (
-      <div className="card shirt-card text-white bg-dark mb-3 rounded" id="shirtcard"> 
+      <div className="card shirt-card text-white bg-dark mb-3 rounded" id="shirtcard">
         <img src={ shirt.imageUrl } className="card-img-top rounded-circle" alt="shirtPort"></img>
         <div className="card-body">
           <h2 className="card-title">{ shirt.shirtName }</h2>
@@ -29,7 +35,7 @@ class ShirtCard extends React.Component {
           <p className="card-text">Brand: { shirt.whatBrand }</p>
           <p className="card-text">Stitch Type: { shirt.stitchType }</p>
           <p className="card-text">Fabric Type: { shirt.fabricType }</p>
-          <p className="card-text">Vintage: { shirt.isVintage }</p>
+          <p className="card-text">{ vintageVerify()} { shirt.isVintage }</p>
           <div className="card-footer">
           <Link to={editShirtLink} className="btn btn-warning"><i className="fas fa-edit">Edit</i></Link>
           <button type="button" className="btn btn-secondary"

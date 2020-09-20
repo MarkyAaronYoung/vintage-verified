@@ -18,6 +18,12 @@ class PantCard extends React.Component {
 
   render() {
     const { pant } = this.props;
+    const vintageVerify = () => {
+      if (pant.whereMade === 'China/Taiwan' || pant.fabricType === 'Spandex') {
+        return <div>Not Vintage</div>;
+      }
+      return <div>Vintage</div>;
+    };
     const editPantLink = `/pants/${pant.id}/edit`;
     return (
       <div className="card pant-card text-white bg-dark mb-3 rounded" id="pantcard">
@@ -27,9 +33,9 @@ class PantCard extends React.Component {
           <p className="card-text">Made in: { pant.whereMade }</p>
           <p className="card-text">Zipper and Tong Type: { pant.zipperAndTongType }</p>
           <p className="card-text"> Fabric Type: { pant.fabricType }</p>
-          <p className="card-text"> Vintge: { pant.isVintage }</p>
+          <p className="card-text"> {vintageVerify()} { pant.isVintage }</p>
           <div className="card-footer">
-          <Link to={editPantLink} className="btn btn-warning"><i className="fas fa-edit"></i></Link>
+          <Link to={editPantLink} className="btn btn-warning"><i className="fas fa-edit">Edit</i></Link>
           <button type="button" className="btn btn-secondary"
           onClick={this.deletePantEvent}>Delete</button>
           </div>

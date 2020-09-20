@@ -72,24 +72,7 @@ class Jeans extends React.Component {
       .catch((err) => console.error('new item broken', err));
   };
 
-  // verify = () => {
-  //   const whereMade = jeans.whereMade;
-  //   return
-  //   (<div</div>whereMade === USA/Mexico) {
-
-  //   }
-  // }
-
   render() {
-    // const vintageVerify = () => {
-    //   const { whereMade } = this.state;
-    //   if (whereMade === 'USA/Mexico') {
-    //     console.error(whereMade);
-    //     return <div>Vintage</div>;
-    //   }
-    //   return <div>NOt Vintage</div>;
-    // };
-
     return (
       <form className="col-6 offset-3">
       {/* <button className="btn btn-dark" onClick={this.closeFormEvent}><i className="fas fa-window-close"></i></button> */}

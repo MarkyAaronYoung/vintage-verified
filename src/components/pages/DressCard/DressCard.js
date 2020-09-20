@@ -19,6 +19,12 @@ class DressCard extends React.Component {
 
   render() {
     const { dress } = this.props;
+    const vintageVerify = () => {
+      if (dress.whereMade === 'China/Taiwan' || dress.fabricType === 'Spandex') {
+        return <div>Not Vintage</div>;
+      }
+      return <div>Vintage</div>;
+    };
     const editDressLink = `/dresses/${dress.id}/edit`;
     return (
       <div className="card dress-card text-white bg-dark mb-3 rounded" id="dresscard">
@@ -29,7 +35,7 @@ class DressCard extends React.Component {
           <p className="card-text">Made in: { dress.whereMade }</p>
           <p className="card-text">Zipper and Tong Type: { dress.zipperAndTongType }</p>
           <p className="card-text"> Fabric Type: { dress.fabricType }</p>
-          <p className="card-text"> Vintge: { dress.isVintage }</p>
+          <p className="card-text"> {vintageVerify()} { dress.isVintage }</p>
           <div className="card-footer">
           <Link to={editDressLink} className="btn btn-warning"><i className="far fa-edit">Edit</i></Link>
           <button type="button" className="btn btn-secondary"
