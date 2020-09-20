@@ -79,8 +79,17 @@ class EditJean extends React.Component {
 
   render() {
     const {
-      jeanName, whatColorTab, whereMade, whatBrand, fabricType, isVintage, imageUrl,
+      jeanName, whatColorTab, whereMade, whatBrand, fabricType, imageUrl, isVintage,
     } = this.state.jean;
+
+    const vintageVerify = () => {
+      const { jean } = this.state;
+      if (jean.whereMade === 'USA/Mexico') {
+        return <div>Vintage</div>;
+      }
+      return <div>NOt Vintage</div>;
+    };
+
     return (
       <div className="form-wrapper">
         <h1>Edit {jeanName} </h1>
@@ -113,10 +122,9 @@ class EditJean extends React.Component {
     <label htmlFor="wherejeanmade">Where were your jeans made?</label>
     <select className="form-control" id="wherejeanmade" onChange={this.changeMadeEvent} value={whereMade}>
     <option value="" defaultselected>choose a location below </option>
-      <option>USA/Korea/Hong Kong</option>
-      <option>Phillipines</option>
+      <option>USA/Mexico</option>
+      <option>China/Bangladesh/Phillipines</option>
       <option>Unknown/No Tag</option>
-      <option>China/Taiwan</option>
     </select>
   </div>
   <div className="form-group">
@@ -152,6 +160,7 @@ class EditJean extends React.Component {
       <option>Unknown/Other</option>
     </select>
   </div>
+      {vintageVerify()}
     <button className="btn btn-dark" onClick={this.updateJeanEvent}>Update Jean</button>
   </form>
   </div>

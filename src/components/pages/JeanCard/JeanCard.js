@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import jeanShape from '../../../helpers/props/jeanShape';
+import './JeanCard.scss';
 
 class PantCard extends React.Component {
   static propTypes = {
@@ -17,9 +18,15 @@ class PantCard extends React.Component {
 
   render() {
     const { jean } = this.props;
+    const vintageVerify = () => {
+      if (jean.whereMade === 'USA/Mexico') {
+        return <div>Vintage</div>;
+      }
+      return <div>Not Vintage</div>;
+    };
     const editJeanLink = `/jeans/${jean.id}/edit`;
     return (
-      <div className="card jean-card text-white bg-dark mb-3 rounded">
+      <div className="card jean-card text-white bg-dark mb-3 rounded" id="jeancard">
         <img src={ jean.imageUrl } className="card-img-top rounded-circle" alt="jeanPort"></img>
         <div className="card-body">
           <h2 className="card-title">{ jean.jeanName }</h2>
@@ -27,7 +34,7 @@ class PantCard extends React.Component {
           <p className="card-text">Brand: { jean.whatBrand }</p>
           <p className="card-text">Fabric Type: { jean.fabricType }</p>
           <p className="card-text">Color Tab: { jean.whatColorTab }</p>
-          <p className="card-text">Vintage: { jean.isVintage }</p>
+          <h3 className="card-text">{vintageVerify()} { jean.isVintage }</h3>
           <div className="card-footer">
           <Link to={editJeanLink} className="btn btn-warning"><i className="far fa-edit">Edit</i></Link>
           <button type="button" className="btn btn-secondary"
