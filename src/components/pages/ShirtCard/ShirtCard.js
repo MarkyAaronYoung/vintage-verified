@@ -20,7 +20,7 @@ class ShirtCard extends React.Component {
     const { shirt } = this.props;
     const editShirtLink = `/shirts/${shirt.id}/edit/`;
     return (
-      <div className="card shirt-card text-white bg-dark mb-3 rounded">
+      <div className="card shirt-card text-white bg-dark mb-3 rounded" id="shirtcard"> 
         <img src={ shirt.imageUrl } className="card-img-top rounded-circle" alt="shirtPort"></img>
         <div className="card-body">
           <h2 className="card-title">{ shirt.shirtName }</h2>
