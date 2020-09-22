@@ -62,7 +62,7 @@ class MyNavbar extends React.Component {
               <NavLink tag={RRNavLink} to="/verifiedvintage">Verified Vintage</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink onClick={this.logMeOut}>Log Me Out</NavLink>
+              <NavLink onClick={this.logoutClickEvent}>Log Me Out</NavLink>
           </NavItem>
         </Nav>
         );
