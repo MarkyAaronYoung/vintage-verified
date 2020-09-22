@@ -27,19 +27,19 @@ class DressCard extends React.Component {
     };
     const editDressLink = `/dresses/${dress.id}/edit`;
     return (
-      <div className="card dress-card text-white bg-dark mb-3 rounded" id="dresscard">
-        <img src={ dress.imageUrl } className="card-img-top rounded-circle" alt="dressPort"></img>
+      <div className="card dress-card text-white mb-3 rounded mx-auto" id="dresscard">
+        <img id="cardimage" src={ dress.imageUrl } className="card-img-top mx-auto" alt="dressPort"></img>
         <div className="card-body">
           <h2 className="card-title">{ dress.dressName }</h2>
-          <p className="card-text">Skirt: { dress.isSkirt }</p>
+          {/* <p className="card-text">Skirt: { dress.isSkirt }</p>
           <p className="card-text">Made in: { dress.whereMade }</p>
           <p className="card-text">Zipper and Tong Type: { dress.zipperAndTongType }</p>
-          <p className="card-text"> Fabric Type: { dress.fabricType }</p>
-          <p className="card-text"> {vintageVerify()} { dress.isVintage }</p>
+          <p className="card-text"> Fabric Type: { dress.fabricType }</p> */}
+          <h3 className="card-text"> {vintageVerify()} { dress.isVintage }</h3>
           <div className="card-footer">
-          <Link to={editDressLink} className="btn btn-warning"><i className="far fa-edit">Edit</i></Link>
+          <Link to={editDressLink} className="btn btn-secondary" id="editbutton"><i className="far fa-edit">Edit</i></Link>
           <button type="button" className="btn btn-secondary"
-          onClick={this.deleteDressEvent}>Delete</button>
+          onClick={this.deleteDressEvent}><i class="fa fa-trash" aria-hidden="true">Delete</i></button>
           </div>
         </div>
       </div>

@@ -42,15 +42,19 @@ class Home extends React.Component {
     return (
    <div className="app">
      <div className="quad" id="dress">
+       <h3>Verify a Dress</h3>
        <img src={dress} alt="" onClick={this.createDressEvent}/>
      </div>
      <div className="quad">
+       <h3>Verify Pants</h3>
        <img src={pant} alt="" onClick={this.createPantEvent}/>
        </div>
        <div className="quad">
+         <h3>Verify a Shirt</h3>
          <img src={shirt} alt="" onClick={this.createShirtEvent}/>
          </div>
          <div className="quad">
+           <h3>Verify Jeans</h3>
            <img src={jeans} alt="" onClick={this.createJeanEvent}/>
          </div>
        </div>

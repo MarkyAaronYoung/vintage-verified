@@ -1,5 +1,35 @@
-#pantcard{
-  color: antiquewhite;
-    font-family: cursive;
-    font-size: small;
+#editbutton {
+  background-color: rgb(143, 101, 42);
+  color: rgb(192, 183, 176);
+  font-size: small;
+}
+
+
+#cardimage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#pantcard {
+ background-color: antiquewhite;
+ color: black;
+ object-fit: cover;
+ width: 100%;
+ height: 100%;
+ font-family: cursive;
+ font-size: small;
+}
+
+.btn-secondary{
+  font-size: small;
+}
+.card-text {
+  color: black;
+  font-size: x-large;
+  text-emphasis: bold;
+}
+
+.card-title {
+  color: black;
 }

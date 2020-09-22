@@ -13,6 +13,7 @@ import {
 import firebase from 'firebase/app';
 // import Auth from '../Auth/Auth';
 import 'firebase/auth';
+import './MyNavbar.scss';
 
 class MyNavbar extends React.Component {
   static propTypes = {

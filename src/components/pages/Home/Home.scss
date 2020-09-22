@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+
 body {
   background-image: url(../../../images/vintagehomepage.png)
 }
@@ -16,7 +18,7 @@ body {
 
 img {
   height: 15em;
-  border-radius: 25px 25px 0px 0px;
+  border-radius: 25px 25px 25px 25px;
   margin: 25px;
 }
 
@@ -24,3 +26,8 @@ img {
   height: 300;
   width: 300;
 }
+
+h3 {
+  color: white;
+  font-family: 'Limelight', cursive;
+};

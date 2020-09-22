@@ -26,18 +26,18 @@ class PantCard extends React.Component {
     };
     const editPantLink = `/pants/${pant.id}/edit`;
     return (
-      <div className="card pant-card text-white bg-dark mb-3 rounded" id="pantcard">
-        <img src={ pant.imageUrl } className="card-img-top rounded-circle" alt="pantPort"></img>
+      <div className="card pant-card text-white mb-3 rounded mx-auto" id="pantcard">
+        <img id="cardimage" src={ pant.imageUrl } className="card-img-top rounded-circle mx-auto" alt="pantPort"></img>
         <div className="card-body">
           <h2 className="card-title">{ pant.pantsName }</h2>
-          <p className="card-text">Made in: { pant.whereMade }</p>
+          {/* <p className="card-text">Made in: { pant.whereMade }</p>
           <p className="card-text">Zipper and Tong Type: { pant.zipperAndTongType }</p>
-          <p className="card-text"> Fabric Type: { pant.fabricType }</p>
-          <p className="card-text"> {vintageVerify()} { pant.isVintage }</p>
+          <p className="card-text"> Fabric Type: { pant.fabricType }</p> */}
+          <h3 className="card-text"> {vintageVerify()} { pant.isVintage }</h3>
           <div className="card-footer">
-          <Link to={editPantLink} className="btn btn-warning"><i className="fas fa-edit">Edit</i></Link>
+          <Link to={editPantLink} className="btn btn-secondary"><i className="fas fa-edit" id="editbutton">Edit</i></Link>
           <button type="button" className="btn btn-secondary"
-          onClick={this.deletePantEvent}>Delete</button>
+          onClick={this.deletePantEvent}><i class="fa fa-trash" aria-hidden="true">Delete</i></button>
           </div>
         </div>
       </div>

@@ -1,21 +1,37 @@
-// // .shirt-card {
-// //     width: 18rem;
-// //     margin: 40px;
-// //     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-// //   }
+#editbutton {
+  background-color: rgb(143, 101, 42);
+  color: rgb(192, 183, 176);
+  font-size: small;
+}
 
-// // .card-body {
-// //   position: relative;
-// //     width: 100%;
-// //     height: 100%;
-// //     text-align: center;
-// //     transition: transform 0.8s;
-// //     transform-style: preserve-3d;
-// // }
-#shirtcard{
-  color: antiquewhite;
-    font-family: cursive;
-    font-size: small;
+
+#cardimage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#shirtcard {
+ background-color: antiquewhite;
+ color: black;
+ object-fit: cover;
+ width: 100%;
+ height: 100%;
+ font-family: cursive;
+ font-size: small;
+}
+
+.btn-secondary{
+  font-size: small;
+}
+.card-text {
+  color: black;
+  font-size: x-large;
+}
+
+.card-title {
+  color: black;
+  font-size: medium;
 }
 
 
@@ -46,12 +62,12 @@
 //   font-size: 10px;
 // }
 
-.entry h2{
-  font-size:36px;
-  color: white;
-  font-weight:800;
-}
+// .entry h2{
+//   font-size:36px;
+//   color: white;
+//   font-weight:800;
+// }
 
-.entry h2:hover{
-  color:red;
-}
+// .entry h2:hover{
+//   color:red;
+// }
