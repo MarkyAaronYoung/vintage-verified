@@ -98,7 +98,7 @@ class Jeans extends React.Component {
     </div>
     <div className="form-group">
     <label htmlFor="wherejeansmade">Where were your jeans made?</label>
-    <select className="form-control" id="wherejeansmade" onChange={this.changeMadeEvent} placeholder="choose a location by clicking the dropdown arrow">
+    <select className="form-control" id="wherejeansmade" onChange={this.changeMadeEvent}>
       <option value="" default selected>choose a location below</option>
       <option>USA/Mexico</option>
       <option>China/Bangladesh/Phillipines</option>

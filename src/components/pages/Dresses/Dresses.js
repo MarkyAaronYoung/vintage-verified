@@ -129,7 +129,7 @@ class Dresses extends React.Component {
   <div className="form-group">
     <label htmlFor="zipperAndTongType">What material are the zipper teeth and tongs?</label>
     <select className="form-control" id="zipperAndTongType" onChange={this.changeZipperEvent}>
-    <option value="" default selected>Choose the type of material of your zipper teeth and tong below</option>
+    <option value="" default selected>What material are the zipper teeth and tongs?</option>
       <option>Both Plastic</option>
       <option>Metal Teeth/Plastic Tong</option>
       <option>Both Metal</option>

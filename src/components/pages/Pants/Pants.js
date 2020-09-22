@@ -92,6 +92,7 @@ class Pants extends React.Component {
     <div className="form-group">
     <label htmlFor="wherepantsmade">Where were your pants made?</label>
     <select className="form-control" id="wherepantsmade" onChange={this.changeMadeEvent}>
+    <option value="" default selected>choose a location below</option>
       <option>USA/Korea/Hong Kong</option>
       <option>Phillipines</option>
       <option>Unknown/No Tag</option>
@@ -101,6 +102,7 @@ class Pants extends React.Component {
   <div className="form-group">
     <label htmlFor="fabricType">What Kind of Fabric?</label>
     <select className="form-control" id="fabricType" onChange={this.changeFabricEvent}>
+    <option value="" default selected>Choose a fabric type below</option>
       <option>All Cotton</option>
       <option>Polyester(any amount)</option>
       <option>Rayon/Crepe</option>
@@ -110,11 +112,13 @@ class Pants extends React.Component {
     </select>
   </div>
   <div className="form-group">
-    <label htmlFor="zipperAndTongType">What material are the zipper teeth and tongs?</label>
+    <label htmlFor="zipperAndTongType">Zipper/Tong Material</label>
     <select className="form-control" id="zipperAndTongType" onChange={this.changeZipperEvent}>
+    <option value="" default selected>Zipper and Tong Material</option>
       <option>Both Plastic</option>
       <option>Metal Teeth/Plastic Tong</option>
       <option>Both Metal</option>
+      <option>Unknown/other</option>
     </select>
   </div>
     <button className="btn btn-dark" onClick={this.verifyPantsEvent}>Verify Pants</button>

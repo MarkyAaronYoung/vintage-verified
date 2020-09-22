@@ -84,7 +84,7 @@ class EditShirt extends React.Component {
     } = this.state.shirt;
     return (
       <div className="form-wrapper">
-        <h1>Edit {shirtName} </h1>
+        <h3>You are editing {shirtName} </h3>
       <form className="col-6 offset-3">
       {/* <button className="btn btn-dark" onClick={this.closeFormEvent}><i className="fas fa-window-close"></i></button> */}
        <div className="form-group">

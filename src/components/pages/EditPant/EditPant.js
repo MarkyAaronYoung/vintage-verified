@@ -75,7 +75,7 @@ class EditPant extends React.Component {
     } = this.state.pant;
     return (
       <div className="form-wrapper">
-        <h1>Edit {pantsName}</h1>
+        <h3>You are editing {pantsName}</h3>
       <form className="col-6 offset-3">
        <div className="form-group">
       <label htmlFor="imageUrl">Pant Image</label>
