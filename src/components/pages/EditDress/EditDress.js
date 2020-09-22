@@ -1,5 +1,6 @@
 import React from 'react';
 import dressesData from '../../../helpers/data/dressesData';
+import './EditDress.scss';
 
 class EditDress extends React.Component {
   state = {
@@ -83,7 +84,7 @@ class EditDress extends React.Component {
     } = this.state.dress;
     return (
       <div className="form-wrapper">
-        <h1>Edit {dressName} </h1>
+        <h3>You are editing {dressName} </h3>
       <form className="col-6 offset-3">
       {/* <button className="btn btn-dark" onClick={this.closeFormEvent}><i className="fas fa-window-close"></i></button> */}
        <div className="form-group">
