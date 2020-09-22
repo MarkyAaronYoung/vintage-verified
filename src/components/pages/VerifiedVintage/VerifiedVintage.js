@@ -10,6 +10,8 @@ import ShirtCard from '../ShirtCard/ShirtCard';
 import JeanCard from '../JeanCard/JeanCard';
 import PantCard from '../PantCard/PantCard';
 
+import './VerifiedVintage.scss';
+
 class VerifiedVintage extends React.Component {
   state = {
     pants: [],
@@ -83,21 +85,36 @@ class VerifiedVintage extends React.Component {
     const dressCards = dresses.map((dress) => <DressCard key={dress.id} dress={dress} deleteDress={this.deleteDress}/>);
 
     return (
-      <div className="VerifiedVintage">
-        <h1>Verified Vintage</h1>
-        <div className="card-columns">
-          { pantCards }
-          <div>
-            { jeanCards }
-            <div>
-              { shirtCards }
-              <div>
-                { dressCards }
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+      <div class="row">
+  <div class="column">
+    <div class="card">{pantCards}</div>
+  </div>
+  <div class="column">
+    <div class="card">{jeanCards}</div>
+  </div>
+  <div class="column">
+    <div class="card">{shirtCards}</div>
+  </div>
+  <div class="column">
+    <div class="card">{dressCards}</div>
+  </div>
+</div>
+    // <div className="VerifiedVintage">
+    //   <h1>Verified Vintage</h1>
+    //   <div className="card-columns">
+    //     { pantCards }
+    //     <div>
+    //       { jeanCards }
+    //       <div>
+    //         { shirtCards }
+    //         <div>
+    //           { dressCards }
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
     );
   }
 }
