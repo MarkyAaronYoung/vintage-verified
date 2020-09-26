@@ -25,17 +25,29 @@ class DressCard extends React.Component {
       }
       return <div>Vintage</div>;
     };
+
+      const vintageDecade = () =>{
+        if (dress.whereMade === 'USA/Korea/Hong Kong' && dress.zipperAndTongType === 'Both Metal') {
+          return <div>1920's to 1950's</div>;
+        } else if (dress.whereMade === 'USA/Korea/Hong Kong' && dress.zipperAndTongType === 'Metal Teeth/Plastic Tong') {
+          return <div>1970's to 1980's</div>;
+        } else if (dress.whereMade === 'USA/Korea/Hong Kong' && dress.zipperAndTongType === 'Both Plastic') {
+          return <div>1980's</div>;
+        } 
+        return <div></div>;
+      };
+
     const editDressLink = `/dresses/${dress.id}/edit`;
     return (
       <div className="card dress-card text-white mb-3 rounded mx-auto" id="dresscard">
-        <img id="cardimage" src={ dress.imageUrl } className="card-img-top mx-auto" alt="dressPort"></img>
+        <img id="cardimage" src={ dress.imageUrl } className="card-img-top rounded-circle mx-auto" alt="dressPort"></img>
         <div className="card-body">
           <h2 className="card-title">{ dress.dressName }</h2>
           {/* <p className="card-text">Skirt: { dress.isSkirt }</p>
           <p className="card-text">Made in: { dress.whereMade }</p>
           <p className="card-text">Zipper and Tong Type: { dress.zipperAndTongType }</p>
           <p className="card-text"> Fabric Type: { dress.fabricType }</p> */}
-          <h3 className="card-text"> {vintageVerify()} { dress.isVintage }</h3>
+          <h3 className="card-text"> {vintageVerify()} {vintageDecade()} { dress.isVintage }</h3>
           <div className="card-footer">
           <Link to={editDressLink} className="btn btn-secondary" id="editbutton"><i className="far fa-edit">Edit</i></Link>
           <button type="button" className="btn btn-secondary"
